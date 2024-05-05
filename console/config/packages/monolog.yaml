@@ -1,0 +1,21 @@
+monolog:
+    handlers:
+        error_log:
+            type: stream
+            # Spécifiez le chemin du fichier de log pour les erreurs
+            path: "%kernel.logs_dir%/errors.log"
+            # Niveau de log pour les erreurs (vous pouvez choisir le niveau approprié)
+            level: error
+            
+        # this "file_log" key could be anything
+        file_log:
+            type: stream
+            # log to var/log/(environment).log
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            # log *all* messages (debug is lowest level)
+            level: debug
+
+        syslog_handler:
+            type: syslog
+            # log error-level messages and higher
+            level: error

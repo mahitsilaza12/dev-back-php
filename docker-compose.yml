@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  console:
+    build: .
+    volumes:
+      - ./console:/console
+      - .:/var/www
+    links:
+      - redis
+     
+  redis:
+    image: redis:latest
